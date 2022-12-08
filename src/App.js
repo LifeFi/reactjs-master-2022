@@ -2,55 +2,33 @@ import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-`;
-
-const rotationAnimation = keyframes`
-  0% {
-  transform: rotate(0deg);
-  border-radius: 0px;
-
-  }
-  50% {
-  transform: rotate(360deg);
-  border-radius: 100px;
-}
-  100% {
-  transform: rotate(0deg);
-  border-radius: 0px;
-}
-`;
-const Emoji = styled.span`
-  font-size: 30px;
-`;
-
-const Box = styled.div`
-  height: 200px;
-  width: 200px;
-  background-color: tomato;
-  display: flex;
-  align-items: center;
+  height: 100vh;
+  width: 100vw;
   justify-content: center;
-  animation: ${rotationAnimation} 1.5s linear infinite;
-  ${Emoji} {
-    font-size: 50px;
+  align-items: center;
+`;
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
+  width: 100px;
+  height: 100px;
+`;
 
-    &:hover {
-      font-size: 100px;
-    }
+const BigCircle = styled(Box)`
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+`;
 
-    &:active /*click is active*/ {
-      opacity: 0;
-    }
-  }
+const Input = styled.input.attrs({ required: true })`
+  color: tomato;
 `;
 
 function App() {
   return (
     <Wrapper>
-      <Box>
-        <Emoji as="p">😍</Emoji>
-        <Emoji>😂</Emoji>
-      </Box>
+      <Box bgColor="teal"></Box>
+      <Box bgColor="tomato"></Box>
+      <BigCircle bgColor="tomato"></BigCircle>
     </Wrapper>
   );
 }
