@@ -16,12 +16,14 @@ const Header = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const CoinList = styled.div``;
+const CoinList = styled.ul``;
+
 const Coin = styled.li`
-  background-color: white;
-  color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.cardBgColor};
+  color: ${(props) => props.theme.textColor};
   border-radius: 15px;
   margin-bottom: 10px;
+  border: 1px solid white;
   a {
     align-items: center;
     display: flex;
@@ -61,7 +63,9 @@ interface ICoin {
   type: string;
 }
 
-function Coins() {
+interface ICoinsProps {}
+
+function Coins({}: ICoinsProps) {
   // const [coins, setCoins] = useState<ICoin[]>([]);
   // const [loading, setLoading] = useState(true);
   // useEffect(() => {
