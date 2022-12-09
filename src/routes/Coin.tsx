@@ -164,7 +164,7 @@ function Coin() {
     ["tickers", coinId],
     () => fetchCoinTickers(coinId),
     {
-      refetchInterval: 500,
+      refetchInterval: 5000,
     }
   );
 
@@ -195,7 +195,7 @@ function Coin() {
         </title>
       </Helmet>
       <br />
-      <Link to="/">◀BACK</Link>
+      {/* <Link to="/">◀BACK</Link> */}
       <Header>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
@@ -243,7 +243,7 @@ function Coin() {
 
           <Switch>
             <Route path={`/:coinId/price`}>
-              <Price />
+              <Price coinId={coinId} />
             </Route>
             <Route path={`/:coinId/chart`}>
               <Chart coinId={coinId} />
