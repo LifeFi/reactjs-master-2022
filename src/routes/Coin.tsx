@@ -147,9 +147,7 @@ interface PriceData {
   };
 }
 
-interface ICoinProps {}
-
-function Coin({}: ICoinProps) {
+function Coin() {
   const { coinId } = useParams<RouterParams>();
   const { state } = useLocation<RouteState>();
   const priceMatch = useRouteMatch("/:coinId/price");
