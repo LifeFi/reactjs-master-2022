@@ -154,6 +154,9 @@ function Coin() {
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
     ["info", coinId],
     () => fetchCoinInfo(coinId)
+    /*함수 자체를 2번째 인자로 넘겨야 하므로, fetchCoinInfo 로 해야 한다.
+    그런데 함수읜 인자를 함께 담아야 하므로, () => fetchCoinInfo(인자) 로
+    일종의 함수 포장지를 싸서 보낸다. */
   );
   const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
     ["tickers", coinId],
